@@ -117,7 +117,6 @@ vector<size_t> getHamDistBlock_SSE(const vector<string>& whitelist, size_t block
 			if ((whitelist.size() - j) < numJointComparisons) {
 				numActualComparisons = whitelist.size() - j;
 			}
-			LOGVAR(numActualComparisons);
 
 			// Set up our big buffer:
 			memset(jointComparisonBuffer, 0, sizeof(char) * bufferSize); 
