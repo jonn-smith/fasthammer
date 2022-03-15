@@ -178,16 +178,16 @@ size_t hamming(const string& s1, const string& s2) {
 }
 
 void updateMinHamDist(const size_t dist, const size_t index, const vector<string>& whitelist, unordered_map<string, size_t>& minimumHammingDistance) {
-	try {
+	if (minimumHammingDistance.find((whitelist[index])) != minimumHammingDistance.end()) {
 		size_t curDist = minimumHammingDistance.at(whitelist[index]);
 
 		if (dist < curDist) {
 			minimumHammingDistance[whitelist[index]] = dist;
-		}   
-	}   
-	catch (const out_of_range& oor) {
+		} 
+	}
+	else {
 		minimumHammingDistance[whitelist[index]] = dist;
-	}   
+	}
 }
 
 pair<vector<size_t>, unordered_map<string, size_t>> getHamDistBlock(const vector<string>& whitelist, size_t blockStart, size_t blockEnd) {
